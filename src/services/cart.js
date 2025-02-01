@@ -1,0 +1,42 @@
+import { base_url } from "../database";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const cartApi = createApi({
+  reducerPath: "cartApi",
+  tagTypes: ["addProduct", "deleteProduct"],
+  baseQuery: fetchBaseQuery({ baseUrl: base_url }),
+  endpoints: (builder) => ({
+    getCart: builder.query({
+      query: ({ localId }) => `carts/${localId}.json`,
+      transformResponse: (response) => {
+        const data = Object.entries(response).map((item) => ({
+          ...item[1],
+          id: item[0],
+        }));
+        return data;
+      },
+      providesTags: ["addProduct", "deleteProduct"],
+    }),
+    postCart: builder.mutation({
+      query: ({ localId, cartProduct }) => ({
+        url: `carts/${localId}/${cartProduct.id}.json`,
+        method: "PUT",
+        body: cartProduct,
+      }),
+      invalidatesTags: ["addProduct"],
+    }),
+    deleteCartProduct: builder.mutation({
+      query: ({ localId, productId }) => ({
+        url: `carts/${localId}/${productId}.json`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["deleteProduct"],
+    }),
+  }),
+});
+
+export const {
+  useGetCartQuery,
+  usePostCartMutation,
+  useDeleteCartProductMutation,
+} = cartApi;

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "createdAt": 1734057537,
+    "idUser": 1,
+    "total": 12000,
+    "products": [
+      {
+        "id": 0,
+        "title": "Teclado gamer Redragon Kumara",
+        "description": "La gran calidad del Redragon Kumara K552, y su precio económico lo vuelven un atractivo ideal para que te diviertas frente a la pantalla. Su ergonomía, su base antidelizante y su rápido tiempo de respuesta permite que tus juegos favoritos se sientan más cerca que nunca, al alcance de tus manos.",
+        "price": 47,
+        "discountPercentage": 16,
+        "rating": 4.74,
+        "stock": 13,
+        "brand": "Redragon",
+        "category": "Teclado",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_969843-MLU75183480618_032024-O.webp",
+        "images": [
+          "https://http2.mlstatic.com/D_NQ_NP_824581-MLA52350579847_112022-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_611667-MLU74218932981_012024-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_983216-MLU72835642315_112023-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_739876-MLU72760571018_112023-O.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "createdAt": 1734051237,
+    "idUser": 1,
+    "total": 150000,
+    "products": [
+      {
+        "id": 0,
+        "title": "Teclado gamer Redragon Kumara",
+        "description": "La gran calidad del Redragon Kumara K552, y su precio económico lo vuelven un atractivo ideal para que te diviertas frente a la pantalla. Su ergonomía, su base antidelizante y su rápido tiempo de respuesta permite que tus juegos favoritos se sientan más cerca que nunca, al alcance de tus manos.",
+        "price": 47,
+        "discountPercentage": 16,
+        "rating": 4.74,
+        "stock": 13,
+        "brand": "Redragon",
+        "category": "Teclado",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_969843-MLU75183480618_032024-O.webp",
+        "images": [
+          "https://http2.mlstatic.com/D_NQ_NP_824581-MLA52350579847_112022-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_611667-MLU74218932981_012024-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_983216-MLU72835642315_112023-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_739876-MLU72760571018_112023-O.webp"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Mouse gamer de juego Redragon Griffin M607 negro",
+        "description": "Desde su base, cuenta con pads de teflón, que ofrecen un mejor deslizamiento y mayor duración. Su chasis íntegramente compuesto de ABS reforzado aporta resistencia y durabilidad. En su interior, se encuentra un sensor óptico Pixart PWM 3212 y switches Omron, diseñados para optimizar el rendimiento. El cable mallado resiste diez mil flexiones bruscas y hasta 12 kilogramos de carga continua. Además, su ficha USB enchapada en oro asegura una terminación inoxidable y la mejor conductividad.",
+        "price": 47,
+        "discountPercentage": 16,
+        "rating": 4.74,
+        "stock": 13,
+        "brand": "Redragon",
+        "category": "Mouse",
+        "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_649359-MLU78455668885_082024-O.webp",
+        "images": [
+          "https://http2.mlstatic.com/D_NQ_NP_863225-MLU73214213705_122023-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_928643-MLU78455658929_082024-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_645108-MLU78455668931_082024-O.webp",
+          "https://http2.mlstatic.com/D_NQ_NP_767350-MLU70008445860_062023-O.webp"
+        ]
+      }
+    ]
+  }
+]
