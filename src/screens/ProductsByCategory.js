@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View, Text } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import { useEffect, useState } from "react";
 import Search from "../components/Search";
 import CardProduct from "../components/CardProduct";
