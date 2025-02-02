@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useDeleteCartProductMutation } from "../services/cart";
 
 const CardCartProduct = ({ product }) => {
-  const { title, brand, price } = product;
+  const { title, brand, price, quantity } = product;
   const localId = useSelector((state) => state.user.localId);
   const [triggerDeleteItemCart] = useDeleteCartProductMutation();
 
@@ -16,7 +16,7 @@ const CardCartProduct = ({ product }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.containerSecundario}>
-        <View>
+        <View style={styles.containerText}>
           <Text style={styles.text}>Marca: {brand}</Text>
           <Text style={styles.text}>Precio: u$s{price}</Text>
         </View>
@@ -24,7 +24,7 @@ const CardCartProduct = ({ product }) => {
           <Entypo name="trash" size={30} color={color.letra} />
         </Pressable>
       </View>
-      <Text style={styles.text}>Cantidad: 1</Text>
+      <Text style={styles.text}>Cantidad: {quantity}</Text>
     </View>
   );
 };
@@ -55,5 +55,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 8,
     fontFamily: "RobotoRegular",
+  },
+  containerText: {
+    flexDirection: "row",
+    gap: 15,
   },
 });

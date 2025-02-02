@@ -17,7 +17,7 @@ const OrdersStack = () => {
         header: () => {
           return (
             <Header
-              title="Orders"
+              title="Compras Finalizadas"
               isDarkMode={isDarkMode}
               onToggle={toggleSwitch}
             />

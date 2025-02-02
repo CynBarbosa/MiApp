@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 import Shadow from "../components/wrappers/Shadow";
 import { color } from "../global/color";
 import { useNavigation } from "@react-navigation/native";

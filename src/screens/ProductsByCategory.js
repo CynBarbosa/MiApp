@@ -2,9 +2,7 @@ import { FlatList, StyleSheet, View, Text } from "react-native";
 import { useEffect, useState } from "react";
 import Search from "../components/Search";
 import CardProduct from "../components/CardProduct";
-import { useSelector } from "react-redux";
 import { useGetProductsQuery } from "../services/shop";
-import { isLoading } from "expo-font";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const ProductsByCategory = ({ route }) => {
@@ -31,12 +29,7 @@ const ProductsByCategory = ({ route }) => {
   }, [keyword, isSuccess]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (isError)
-    return (
-      <View>
-        <Text>{error.message}</Text>
-      </View>
-    );
+  if (isError) return error;
 
   return (
     <View style={styles.container}>

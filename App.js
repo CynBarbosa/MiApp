@@ -6,10 +6,8 @@ import { useFonts } from "expo-font";
 import Navigator from "./src/navigation/Navigator";
 import { Provider } from "react-redux";
 import { store } from "./src/store";
-import { init } from "./src/config/dbSQLite";
 
 export default function App() {
-  init();
   const [fontsLoaded] = useFonts(fonts);
   if (!fontsLoaded) {
     return null;

@@ -2,15 +2,11 @@ import { StyleSheet, FlatList, View, Text } from "react-native";
 import CardItemCategories from "./CardItemCategories";
 import { useGetCategoriesQuery } from "../services/shop";
 import { color } from "../global/color";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Categories = () => {
   const { data: category, isError, error, isLoading } = useGetCategoriesQuery();
-  if (isLoading)
-    return (
-      <View>
-        <Text style={styles.text}>cargando...</Text>
-      </View>
-    );
+  if (isLoading) return <LoadingSpinner />;
   if (isError)
     return (
       <View>

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, Switch } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import InputForm from "../components/InputForm";
 import { useState } from "react";
 import { color } from "../global/color";

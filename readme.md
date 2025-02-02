@@ -90,7 +90,7 @@ const AuthStack = () => {
 
 ## Instalación
 
-1. Clona el repositorio: `git clone `
+1. Clona el repositorio: `git clone https://github.com/CynBarbosa/MiApp`
 2. Instala las dependencias: `npm install`
 3. Configura las claves de API para servicios externos (Expo-Location, Firebase, etc.).
 4. Configura las credenciales de Firebase en tu proyecto.

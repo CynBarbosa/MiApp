@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchSession } from "../config/dbSQLite";
 import { setUser } from "../feature/userSlice";
+import { init } from "../config/dbSQLite";
+import { deleteUser } from "../feature/userSlice";
 
 const Navigator = () => {
   const idToken = useSelector((state) => state.user.idToken);
@@ -12,9 +14,15 @@ const Navigator = () => {
 
   useEffect(() => {
     (async () => {
-      const sessionUser = await fetchSession();
-      if (sessionUser) {
-        dispatch(setUser(sessionUser));
+      try {
+        await init();
+        dispatch(deleteUser());
+        const sessionUser = await fetchSession();
+        if (sessionUser) {
+          dispatch(setUser(sessionUser));
+        }
+      } catch (error) {
+        return error;
       }
     })();
   }, []);

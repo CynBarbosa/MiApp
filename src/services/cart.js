@@ -9,12 +9,20 @@ export const cartApi = createApi({
     getCart: builder.query({
       query: ({ localId }) => `carts/${localId}.json`,
       transformResponse: (response) => {
-        const data = Object.entries(response).map((item) => ({
+        if (!response) {
+          return null;
+        }
+        const entriesWithIds = Object.entries(response).map((item) => ({
           ...item[1],
           id: item[0],
         }));
+        const data = entriesWithIds.filter((item) => item !== null);
         return data;
       },
+      providesTags: ["addProduct", "deleteProduct"],
+    }),
+    getProductCart: builder.query({
+      query: ({ localId, productId }) => `carts/${localId}/${productId}.json`,
       providesTags: ["addProduct", "deleteProduct"],
     }),
     postCart: builder.mutation({
@@ -32,6 +40,13 @@ export const cartApi = createApi({
       }),
       invalidatesTags: ["deleteProduct"],
     }),
+    deleteCart: builder.mutation({
+      query: ({ localId }) => ({
+        url: `carts/${localId}.json`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["deleteProduct"],
+    }),
   }),
 });
 
@@ -39,4 +54,6 @@ export const {
   useGetCartQuery,
   usePostCartMutation,
   useDeleteCartProductMutation,
+  useDeleteCartMutation,
+  useGetProductCartQuery,
 } = cartApi;

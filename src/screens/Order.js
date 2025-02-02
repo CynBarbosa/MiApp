@@ -1,14 +1,23 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import Orders from "../data/orders.json";
+import { FlatList, StyleSheet, View } from "react-native";
 import CardOrders from "../components/CardOrders";
+import { useSelector } from "react-redux";
+import { useGetOrdersUserQuery } from "../services/orders";
+import LoadingSpinner from "../components/LoadingSpinner";
+import EmptyListComponent from "../components/EmptyListComponent";
 
 const Order = () => {
+  const localId = useSelector((state) => state.user.localId);
+  const { data: orders, isLoading } = useGetOrdersUserQuery({ localId });
+
+  if (isLoading) return <LoadingSpinner />;
+  if (!orders) return <EmptyListComponent message="No hay ordenes" />;
+
   return (
     <View>
       <FlatList
-        data={Orders}
+        data={orders}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CardOrders orders={item} />}
+        renderItem={({ item }) => <CardOrders order={item} />}
       />
     </View>
   );
