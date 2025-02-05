@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, View } from "react-native";
 import CardOrders from "../components/CardOrders";
 import { useSelector } from "react-redux";
 import { useGetOrdersUserQuery } from "../services/orders";
@@ -13,13 +13,11 @@ const Order = () => {
   if (!orders) return <EmptyListComponent message="No hay ordenes" />;
 
   return (
-    <View>
-      <FlatList
-        data={orders}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CardOrders order={item} />}
-      />
-    </View>
+    <FlatList
+      data={orders}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => <CardOrders order={item} />}
+    />
   );
 };
 

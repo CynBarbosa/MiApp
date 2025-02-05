@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import { color } from "../global/color";
 import Shadow from "../components/wrappers/Shadow";
 import { useGetProductCartQuery, usePostCartMutation } from "../services/cart";
@@ -43,35 +50,37 @@ const ProductDetail = ({ route }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Shadow>
-        <Image
-          source={{ uri: product.thumbnail }}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <View style={styles.containerText}>
-          <Text style={styles.title}>{product.title.toUpperCase()}</Text>
-          <Text style={styles.description}>
-            {product.description.toLowerCase()}
-          </Text>
-          <Text style={styles.title}>Precio: U$S{product.price}</Text>
-          <Text style={styles.stock}>Stock: {product.stock}</Text>
-          {product.stock - productCart?.quantity === 0 ? (
-            <Text style={styles.price}>Producto sin stock</Text>
-          ) : (
-            <Counter
-              quantity={quantity}
-              increment={increment}
-              decrement={decrement}
-            />
-          )}
-          <Pressable style={styles.button} onPress={handleAddproduct}>
-            <Text style={styles.textButton}>Agregar al carrito</Text>
-          </Pressable>
-        </View>
-      </Shadow>
-    </View>
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Shadow>
+          <Image
+            source={{ uri: product.thumbnail }}
+            style={styles.image}
+            resizeMode="contain"
+          />
+          <View style={styles.containerText}>
+            <Text style={styles.title}>{product.title.toUpperCase()}</Text>
+            <Text style={styles.description}>
+              {product.description.toLowerCase()}
+            </Text>
+            <Text style={styles.title}>Precio: U$S{product.price}</Text>
+            <Text style={styles.stock}>Stock: {product.stock}</Text>
+            {product.stock - productCart?.quantity === 0 ? (
+              <Text style={styles.price}>Producto sin stock</Text>
+            ) : (
+              <Counter
+                quantity={quantity}
+                increment={increment}
+                decrement={decrement}
+              />
+            )}
+            <Pressable style={styles.button} onPress={handleAddproduct}>
+              <Text style={styles.textButton}>Agregar al carrito</Text>
+            </Pressable>
+          </View>
+        </Shadow>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -84,6 +93,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     gap: 10,
+    marginBottom: 50,
   },
   image: {
     height: 140,
